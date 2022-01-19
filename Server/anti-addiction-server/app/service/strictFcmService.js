@@ -67,6 +67,7 @@ class StrictFcmService extends Service {
             let stime = ~~(new Date(moment().format("YYYY-MM-DD " + start)).getTime() / 1000);
             let etime = ~~(new Date(moment().format("YYYY-MM-DD " + end)).getTime() / 1000);
             if (current_time > stime && current_time < etime) {
+                const HolidayModel = this.ctx.model.GameHolidayJson;
                 let holiday_config = await HolidayModel.getHoliday(game);
                 if (lodash.isEmpty(holiday_config)) {
                     throw new Error('请先行配置节假日');
