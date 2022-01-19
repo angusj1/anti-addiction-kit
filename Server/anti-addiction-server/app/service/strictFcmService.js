@@ -72,6 +72,8 @@ class StrictFcmService extends Service {
                 if (lodash.isEmpty(holiday_config)) {
                     throw new Error('请先行配置节假日');
                 }
+                let month = this.ctx.helper.getMonth();
+                let day = this.ctx.helper.getDay();
                 let holiday_json = JSON.parse(holiday_config.holiday_dates);
                 if (holiday_json[month] !== undefined && holiday_json[month].length !== 0) {//实名用户节假日有额外时长
                     if (holiday_json[month][day] !== undefined && holiday_json[month][day].length !== 0) {
