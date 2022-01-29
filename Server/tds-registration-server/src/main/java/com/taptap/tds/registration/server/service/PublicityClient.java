@@ -105,7 +105,8 @@ public class PublicityClient {
             log.info(e.getMessage(), e);
             throw new UncheckedIOException(e);
         }
-        request.setData(EncryptSignUtil.aesGcmEncrypt(data));
+        // request.setData(EncryptSignUtil.aesGcmEncrypt(data));
+        request.setData(data);
         return request;
     }
 
